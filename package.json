@@ -1,0 +1,27 @@
+{
+  "name": "rastreador-encomenda-correios",
+  "version": "1.0.0",
+  "description": "Projeto de um site para mostrar informações do rastreamento de seus objetos nos correios.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node back/server.js",
+    "test": "nodemon back/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LelePG/rastreador-encomenda-correios.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LelePG/rastreador-encomenda-correios/issues"
+  },
+  "homepage": "https://github.com/LelePG/rastreador-encomenda-correios#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "1.17.3"
+  }
+
+}
