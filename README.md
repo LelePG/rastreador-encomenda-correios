@@ -14,3 +14,4 @@ https://github.com/talesluna/rastrojs
 
 npm install express --save
 nodemon instalado globalmente
+express()
