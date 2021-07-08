@@ -35,15 +35,14 @@
                 listaDeEncomendas.insertAdjacentHTML("beforeend", encomendaPraAdicionar)
             })
 
-            btnRastrear.addEventListener("click", function(){
+            btnRastrear.addEventListener("click", function () {
                 let encomendas = Array.from(document.getElementsByClassName("inputEncomenda"))
-                let encomendasFormatadas = encomendas.map((encomenda)=> encomenda.value)
+                let encomendasFormatadas = encomendas.map((encomenda) => encomenda.value)
                 console.log(encomendasFormatadas)
-                let urlParams = encomendasFormatadas.reduce((resultado, encomenda)=>resultado+"&" +encomenda)
-                fetch("encomendas?"+urlParams)
-                .then((res)=> console.log(res))
+                let urlParams = encomendasFormatadas.reduce((resultado, encomenda) => resultado + "&" + encomenda)
+                fetch("encomendas?" + urlParams)
+                    .then((res) => console.log(res))
             })
-
 
         </script>
 </body>

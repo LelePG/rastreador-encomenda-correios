@@ -5,10 +5,9 @@ Projeto de um site para mostrar informações do rastreamento de seus objetos no
 # fazer
 - gui
 - adicionar media query pra aumentar o tamanho da letra do paragrafo com a intrução
-- adicionar novos códigos para serem pesquisados
+- fazer a VOLTA DA requisição
 - fazer formatação responsiva
 - readme
-- rastro.js
 
 
 # notas

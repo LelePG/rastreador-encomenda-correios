@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/LelePG/rastreador-encomenda-correios#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rastrojs": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "1.17.3"
   }
-
 }
