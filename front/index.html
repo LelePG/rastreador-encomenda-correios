@@ -15,12 +15,28 @@
         <div class="aumentaLetra">
             <p id="texto">Adicione um código e clique em rastrear para rastrear seu pedido,
                 ou em adicionar para adicionar mais códigos à solicitação. </p>
-            <label class="encomenda">Encomenda 1: <label/><input type="text">
-            <button id="rastrear" class="btn">Rastrear</button>
+            <ul id="listaEncomendas">
+                <li class="itemEncomenda">Encomenda 1:<input type="text" class="inputEncomenda"></li>
+            </ul>
             <button id="adicionar" class="btn">Adicionar</button>
+            <button id="rastrear" class="btn">Rastrear</button>
+            </di>
         </div>
-    </div>
-    <script href="script.js"></script>
+        <script>
+            const listaDeEncomendas = document.getElementById("listaEncomendas")
+            const btnAdicionar = document.getElementById("adicionar")
+            const btnRastrear = document.getElementById("rastrear")
+
+            btnAdicionar.addEventListener("click", function () {
+                let elementos = listaDeEncomendas.getElementsByTagName("li");
+                let ultimoElemento = elementos[elementos.length - 1]
+                let indice = Number(ultimoElemento.innerText.split(" ")[1].slice(0, -1))
+                const encomendaPraAdicionar = `<li class = "itemEncomenda">Encomenda ${indice + 1}:<input type="text" class="inputEncomenda"></li>`
+                listaDeEncomendas.insertAdjacentHTML("beforeend", encomendaPraAdicionar)
+            })
+
+
+        </script>
 </body>
 
 </html>
