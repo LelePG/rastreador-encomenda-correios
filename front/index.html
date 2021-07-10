@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,35 +17,58 @@
             <p id="texto">Adicione um código e clique em rastrear para rastrear seu pedido,
                 ou em adicionar para adicionar mais códigos à solicitação. </p>
             <ul id="listaEncomendas">
-                <li class="itemEncomenda">Encomenda 1:<input type="text" class="inputEncomenda"></li>
+                <li class="itemEncomenda" id="li-1">Encomenda 1:<input type="text" class="inputEncomenda"
+                        v-model="listaEncomendas[0]"></li>
             </ul>
-            <button id="adicionar" class="btn">Adicionar</button>
-            <button id="rastrear" class="btn">Rastrear</button>
-            </di>
+            <button id="adicionar" class="btn" @click="adicionarEncomenda">Adicionar</button>
+            <button id="rastrear" class="btn" @click="rastrear">Rastrear</button>
         </div>
-        <script>
-            const listaDeEncomendas = document.getElementById("listaEncomendas")
-            const btnAdicionar = document.getElementById("adicionar")
-            const btnRastrear = document.getElementById("rastrear")
+    </div>
+    <script>
+        new Vue({
+            el: '.conteudo',
+            data: {
+                listaEncomendas: [""],
+                quantidadeEncomendas: 1,
+            },
+            methods: {
+                adicionarEncomenda: function () {
+                    document.getElementById(`listaEncomendas`).
+                        insertAdjacentHTML("beforeend", `<li class = "itemEncomenda" 
+                       id="li-${this.quantidadeEncomendas + 1}">Encomenda ${this.quantidadeEncomendas + 1}:
+                       <input type="text" class="inputEncomenda" v-model="listaEncomendas[${this.quantidadeEncomendas}]"></li>`)
+                    this.quantidadeEncomendas = this.quantidadeEncomendas + 1
+                },
 
-            btnAdicionar.addEventListener("click", function () {
-                let elementos = listaDeEncomendas.getElementsByTagName("li");
-                let ultimoElemento = elementos[elementos.length - 1]
-                let indice = Number(ultimoElemento.innerText.split(" ")[1].slice(0, -1))
-                const encomendaPraAdicionar = `<li class = "itemEncomenda">Encomenda ${indice + 1}:<input type="text" class="inputEncomenda"></li>`
-                listaDeEncomendas.insertAdjacentHTML("beforeend", encomendaPraAdicionar)
-            })
+                rastrear: function () {
+                    console.log(this.listaEncomendas)
+                }
+            }
 
-            btnRastrear.addEventListener("click", function () {
-                let encomendas = Array.from(document.getElementsByClassName("inputEncomenda"))
-                let encomendasFormatadas = encomendas.map((encomenda) => encomenda.value)
-                console.log(encomendasFormatadas)
-                let urlParams = encomendasFormatadas.reduce((resultado, encomenda) => resultado + "&" + encomenda)
-                fetch("encomendas?" + urlParams)
-                    .then((res) => console.log(res))
-            })
+        })
 
-        </script>
+            // const listaDeEncomendas = document.getElementById("listaEncomendas")
+            // const btnAdicionar = document.getElementById("adicionar")
+            // const btnRastrear = document.getElementById("rastrear")
+
+            // btnAdicionar.addEventListener("click", function () {
+            //     let elementos = listaDeEncomendas.getElementsByTagName("li");
+            //     let ultimoElemento = elementos[elementos.length - 1]
+            //     let indice = Number(ultimoElemento.innerText.split(" ")[1].slice(0, -1))
+            //     const encomendaPraAdicionar = `<li class = "itemEncomenda">Encomenda ${indice + 1}:<input type="text" class="inputEncomenda"></li>`
+            //     listaDeEncomendas.insertAdjacentHTML("beforeend", encomendaPraAdicionar)
+            // })
+
+            // btnRastrear.addEventListener("click", function () {
+            //     let encomendas = Array.from(document.getElementsByClassName("inputEncomenda"))
+            //     let encomendasFormatadas = encomendas.map((encomenda) => encomenda.value)
+            //     console.log(encomendasFormatadas)
+            //     let urlParams = encomendasFormatadas.reduce((resultado, encomenda) => resultado + "&" + encomenda)
+            //     fetch("encomendas?" + urlParams)
+            //         .then((res) => console.log(res))
+            // })
+
+    </script>
 </body>
 
 </html>
