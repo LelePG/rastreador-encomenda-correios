@@ -16,32 +16,29 @@
         <div class="aumentaLetra">
             <p id="texto">Adicione um código e clique em rastrear para rastrear seu pedido,
                 ou em adicionar para adicionar mais códigos à solicitação. </p>
-            <ul id="listaEncomendas">
-                <li class="itemEncomenda" id="li-1">Encomenda 1:<input type="text" class="inputEncomenda"
-                        v-model="listaEncomendas[0]"></li>
+                </div>
+                <ul id = "lista">
+                <li class = "itensLista" v-for= "(encomenda, i) in encomendas">
+                    Encomenda {{i+1}}<input type="text" class="inputEncomenda" v-model= "encomendas[i]">
+                </li>
             </ul>
+            
             <button id="adicionar" class="btn" @click="adicionarEncomenda">Adicionar</button>
             <button id="rastrear" class="btn" @click="rastrear">Rastrear</button>
-        </div>
     </div>
     <script>
         new Vue({
             el: '.conteudo',
             data: {
-                listaEncomendas: [""],
-                quantidadeEncomendas: 1,
+                encomendas: [""],
             },
             methods: {
                 adicionarEncomenda: function () {
-                    document.getElementById(`listaEncomendas`).
-                        insertAdjacentHTML("beforeend", `<li class = "itemEncomenda" 
-                       id="li-${this.quantidadeEncomendas + 1}">Encomenda ${this.quantidadeEncomendas + 1}:
-                       <input type="text" class="inputEncomenda" v-model="listaEncomendas[${this.quantidadeEncomendas}]"></li>`)
-                    this.quantidadeEncomendas = this.quantidadeEncomendas + 1
+                    this.encomendas.push("")
                 },
 
                 rastrear: function () {
-                    console.log(this.listaEncomendas)
+                     console.log(this.encomendas)
                 }
             }
 

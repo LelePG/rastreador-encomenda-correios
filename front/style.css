@@ -28,11 +28,11 @@ input[type=text]{
     margin-left: 5px;
 }
 
-ul#listaEncomendas{
+ul#lista{
     list-style-type:none;
     padding-left: 6px;
 }
 
-ul#listaEncomendas li{
+ul#lista li{
     margin:5px;
 }
