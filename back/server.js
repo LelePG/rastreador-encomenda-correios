@@ -1,5 +1,6 @@
 const express = require('express')
 const rastrojs = require('rastrojs')
+
 const app = express()
 const port = 3000
 app.use(express.static(__dirname + '/../front'))// provê para a aplicação todos os arquivos estáticos no diretório .
@@ -27,10 +28,10 @@ app.get('/encomendas', (req, res) => {
   }
 
   rastrearEncomenda().then((respostaTotal) => {
+    console.log(respostaTotal)
     //res.json({a:respostaTotal})//IMPLEMENTAR
-    res.send("ok")
-  }
-  )
+    // res.send("okkk")
+  })
 })
 
 app.listen(port, () => {

@@ -39,10 +39,16 @@
 
                 rastrear: function () {
                      console.log(this.encomendas)
+                     let url = this.encomendas.reduce((acumulador, encomenda) => acumulador + "&"+encomenda)
+                     //console.log(url)
+                     fetch("encomendas?" + url)
+                    .then((res) => console.log(res))
                 }
             }
 
         })
+
+            //Código puro em Javascript
 
             // const listaDeEncomendas = document.getElementById("listaEncomendas")
             // const btnAdicionar = document.getElementById("adicionar")
