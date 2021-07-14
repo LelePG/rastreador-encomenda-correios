@@ -27,7 +27,9 @@
         </div>
 
         <div class="resultado" v-else-if="!pesquisar">
-            <p>{{resultadoRastreio}}</p>
+            <ul id = "rastreios">
+            <li v-for = "rastreio in resultadoRastreio">{{rastreio}}</li>
+            </ul>
             <button id="pesquisarNovamente" class="btn" @click="pesquisarNovamente">Rastreie mais encomendas</button>
 
         </div>
@@ -52,12 +54,13 @@
 
                         const resultado = await fetch("encomendas?" + url)
                             .then((res) => res.json())
-                        this.resultadoRastreio = resultado
+                        this.resultadoRastreio = resultado.message
                         this.pesquisar = false
                     },
 
                     pesquisarNovamente: function(){
                         this.pesquisar = true
+                        this.encomendas = [""]
                     }
                 }
 
