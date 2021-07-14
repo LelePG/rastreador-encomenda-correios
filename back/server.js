@@ -9,14 +9,13 @@ app.get('/', (req, res) => {
   res.send('ok')
 })
 
-
 app.get('/encomendas', (req, res) => {
   async function rastrearEncomenda() {
     let respostaTotal = []
     for (codigo in req.query) {
       let encomenda = await rastrojs.track(codigo);
       if (encomenda[0].isInvalid) {
-        respostaTotal.push(`O código ${encomenda[0].code} é inválido`)
+        respostaTotal.push(`O código ${encomenda[0].code} é inválido.`)
         continue
       }
       let ultimoRastreio = encomenda[0].tracks[encomenda[0].tracks.length - 1]

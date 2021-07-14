@@ -1,8 +1,30 @@
+@media(max-width:5000px){
+    body, button, input[type=text]{
+        font-size: 30px;
+    }
+}
+@media(max-width:2500px){
+    body, button, input[type=text]{
+        font-size: 26px;
+    }
+}
+@media(max-width:1200px){
+    body, button, input[type=text]{
+        font-size: 24px;
+    }
+}
+@media(max-width:600px){
+    body, button, input[type=text]{
+        font-size: 18px;
+    }
+}
+
 body{
     background-color: #023047;
     display: flex;
     justify-content: center;
 }
+
 div.conteudo{
     width: 90%;
     background-color: #8ecae6;
@@ -40,7 +62,6 @@ ul#lista li{
     font-weight: bold;
     color: rgb(41, 40, 40);
 }
-
 
 ul#rastreios li{
     font-weight: bold;
