@@ -12,41 +12,56 @@
 
 <body>
     <div class="conteudo">
-        <h1 class="titulo"> Rastreie sua encomenda!</h1>
-        <div class="aumentaLetra">
+        <div class="rastrear" v-if="pesquisar">
+            <h1 class="titulo"> Rastreie sua encomenda!</h1>
             <p id="texto">Adicione um código e clique em rastrear para rastrear seu pedido,
                 ou em adicionar para adicionar mais códigos à solicitação. </p>
-                </div>
-                <ul id = "lista">
-                <li class = "itensLista" v-for= "(encomenda, i) in encomendas">
-                    Encomenda {{i+1}}<input type="text" class="inputEncomenda" v-model= "encomendas[i]">
+            <ul id="lista">
+                <li class="itensLista" v-for="(encomenda, i) in encomendas">
+                    Encomenda {{i+1}}<input type="text" class="inputEncomenda" v-model="encomendas[i]">
                 </li>
             </ul>
-            
+
             <button id="adicionar" class="btn" @click="adicionarEncomenda">Adicionar</button>
             <button id="rastrear" class="btn" @click="rastrear">Rastrear</button>
+        </div>
+
+        <div class="resultado" v-else-if="!pesquisar">
+            <p>{{resultadoRastreio}}</p>
+            <button id="pesquisarNovamente" class="btn" @click="pesquisarNovamente">Rastreie mais encomendas</button>
+
+        </div>
     </div>
-    <script>
-        new Vue({
-            el: '.conteudo',
-            data: {
-                encomendas: [""],
-            },
-            methods: {
-                adicionarEncomenda: function () {
-                    this.encomendas.push("")
+
+        <script>
+            new Vue({
+                el: '.conteudo',
+                data: {
+                    encomendas: [""],
+                    pesquisar: true,
+                    resultadoRastreio: []
                 },
+                methods: {
+                    adicionarEncomenda: function () {
+                        this.encomendas.push("")
+                    },
 
-                rastrear: function () {
-                     console.log(this.encomendas)
-                     let url = this.encomendas.reduce((acumulador, encomenda) => acumulador + "&"+encomenda)
-                     //console.log(url)
-                     fetch("encomendas?" + url)
-                    .then((res) => console.log(res))
+                    rastrear: async function () { // Valeu fuskinha
+                        console.log(this.encomendas)
+                        let url = this.encomendas.reduce((acumulador, encomenda) => acumulador + "&" + encomenda)
+
+                        const resultado = await fetch("encomendas?" + url)
+                            .then((res) => res.json())
+                        this.resultadoRastreio = resultado
+                        this.pesquisar = false
+                    },
+
+                    pesquisarNovamente: function(){
+                        this.pesquisar = true
+                    }
                 }
-            }
 
-        })
+            })
 
             //Código puro em Javascript
 
@@ -71,7 +86,7 @@
             //         .then((res) => console.log(res))
             // })
 
-    </script>
+        </script>
 </body>
 
 </html>
