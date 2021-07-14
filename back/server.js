@@ -9,10 +9,6 @@ app.get('/', (req, res) => {
   res.send('ok')
 })
 
-app.get('/encomendasx', (req,res)=>{
-  const enviar = "12345"
-  res.json({message:"12345"})
-})
 
 app.get('/encomendas', (req, res) => {
   async function rastrearEncomenda() {
@@ -32,7 +28,6 @@ app.get('/encomendas', (req, res) => {
   }
 
   rastrearEncomenda().then((respostaTotal) => {
-    console.log(respostaTotal)
     res.json({message: respostaTotal})
   })
 })

@@ -26,13 +26,32 @@ p#texto{
 
 input[type=text]{
     margin-left: 5px;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.527);
 }
 
-ul#lista{
+ul{
     list-style-type:none;
     padding-left: 6px;
 }
 
 ul#lista li{
     margin:5px;
+    font-weight: bold;
+    color: rgb(41, 40, 40);
+}
+
+
+ul#rastreios li{
+    font-weight: bold;
+    text-align: justify;
+    margin: 5px;
+}
+
+button{
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(41, 40, 40);
+    border-color: rgba(0, 0, 0, 0.527);
 }
