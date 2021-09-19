@@ -55,7 +55,7 @@
                         this.pesquisar = false
                         return
                     }
-                    let url = this.encomendas.reduce((acumulador, encomenda) => acumulador + "&" + encomenda)
+                    let url = this.encomendas.reduce((acumulador, encomenda) => acumulador + "&" + encomenda.trim())
 
                     const resultado = await fetch("encomendas?" + url)
                         .then((res) => res.json())

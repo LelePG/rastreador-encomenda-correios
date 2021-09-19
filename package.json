@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node back/server.js",
-    "test": "nodemon back/server.js"
+    "test": "nodemon back/server.js",
+    "cli": "node cli/main.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/LelePG/rastreador-encomenda-correios#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "fs": "*",
     "rastrojs": "^1.1.1"
   },
   "devDependencies": {
