@@ -21,6 +21,8 @@ Para que o código funcione na sua máquina, é preciso que você tenha o node i
 
 Uma mensagem vai aparecer no console, indicando o endereço para que você possa acessar a aplicação no browser, e então é só inserir os códigos e fazer o rastreio.
 
+## Bônus: rastreio por linha de comando
+Foi implementada também uma maneira de rastrear suas encomendas por meio de linha de comando, para isto basta abrir o terminal, instalar as dependências com `npm i` e então usar o comando `npm run cli` para fazer o rastreio das encomendas. Os códigos que serão rastreados são colocados no arquivo **encomendas.txt** que se encontra na pasta cli. Para que a aplicação funcione, basta modificar este arquivo substituindo seu conteúdo pelos códigos que você quer rastrear. 
 ## Links úteis
 - [Biblioteca de rastreio de encomendas dos correios de Tales Luna](https://github.com/talesluna/rastrojs)
 - [Paleta de cores utilizada no projeto](https://coolors.co/8ecae6-219ebc-023047-ffb703-fb8500)
