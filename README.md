@@ -1,6 +1,9 @@
 # rastreador-encomenda-correios
 <img src = "imagens/print.png" width = "400px">
 
+#### Importante:
+Esta aplicação pode não funcionar corretamente devido à mudanças feitas no sistema dos correios, o que criou algumas incompabilidades com a biblioteca utilizada para pegar as informações dos pacotes. Para mais informações sobre o estado da biblioteca, dê uma olhada no repositório dela [clicando aqui]([rastrojs](https://github.com/talesluna/rastrojs).
+
 ## O que é este projeto?
 Este é um projeto de uma aplicação que roda em um servidor local e permite saber a última localização encontrada das suas encomendas transportadas pelo correio, sendo que você pode fazer o rastreio de um ou mais códigos dos correios por vez.
 

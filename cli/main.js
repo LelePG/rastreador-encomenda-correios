@@ -19,6 +19,10 @@ fs.readFile(path.resolve(__dirname, "encomendas.txt"), 'utf-8', function (err, d
 
 async function rastrearEncomenda(codigo) {
 	let encomenda = await rastrojs.track(codigo);
+	if (encomenda[0].error === "moved_temporarily") {
+		respostaTotal.push(`O sistema dos correios moveu as informações da encomenda ${encomenda[0].code}. Sinto muito.`)
+		continue
+	  }
 	if (encomenda[0].isInvalid) {
 		console.log(`O código ${encomenda[0].code} é inválido.`)
 		return
